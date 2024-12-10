@@ -5,48 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shaurya Mishra's Website</title>
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       background: #000;
-      margin: 0;
       color: #fff;
       font-family: Arial, sans-serif;
       text-align: center;
+      padding: 20px;
     }
 
     h1 {
-      padding-top: 45px;
+      padding-top: 20px;
       font-size: 2em;
       margin-bottom: 20px;
-      color: #ffffff; /* Stylish color for the heading */
+      color: #ffffff;
+      text-align: center;
     }
 
     .shiny-image-container {
       position: relative;
       display: inline-block;
-      padding: 7px; /* Space for the border effect */
-      border-radius: 12px; /* Match the image's shape */
+      padding: 7px;
+      border-radius: 12px;
       background: linear-gradient(45deg, #ff0000, #ff7300, #ffeb00, #47ff00, #00ffee, #2d73ff, #d400ff, #ff0078, #ff0000);
       background-size: 400%;
       animation: gradient-move 4s linear infinite;
-      margin-bottom: 20px; /* Add space below the image */
+      margin-bottom: 20px;
+      max-width: 100%;
+      width: 400px;
     }
 
     .shiny-image-container img {
       display: block;
-      width: 400px; /* Adjust image size */
+      width: 100%;
       height: auto;
-      border-radius: 12px; /* Match the container's rounded edges */
+      border-radius: 12px;
+      max-width: 100%;
     }
 
     p {
       font-size: 1.2em;
       margin-top: 0;
       color: #ffffff;
+      line-height: 1.6;
     }
 
     @keyframes gradient-move {
@@ -59,15 +70,46 @@
     }
 
     .text-box {
-      width: 25%; /* Adjust box width as needed */
+      width: 100%;
       max-width: 600px;
       padding: 20px;
-      background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-      border: 2px solid #ff7300; /* Optional border */
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid #ff7300;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(255, 115, 0, 0.5); /* Optional glow effect */
+      box-shadow: 0 0 10px rgba(255, 115, 0, 0.5);
       text-align: center;
       line-height: 1.6;
+      margin-top: 20px;
+    }
+
+    /* Media Queries for Responsiveness */
+    @media screen and (max-width: 768px) {
+      h1 {
+        font-size: 1.5em;
+      }
+
+      .shiny-image-container {
+        width: 100%;
+        max-width: 350px;
+      }
+
+      p {
+        font-size: 1em;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      h1 {
+        font-size: 1.3em;
+      }
+
+      .shiny-image-container {
+        max-width: 300px;
+      }
+
+      p {
+        font-size: 0.9em;
+      }
     }
   </style>
 </head>
@@ -80,11 +122,10 @@
     <img src="individual.jpg" alt="Mr. Shaurya">
   </div>
   <div class="text-box">
-    
-        <p>My name is Shaurya Mishra, a high school student from Prayagraj.
-             I am the creator of the YouTube channel Bharat Bhakt, where I share my love for Hinduism and the path of bhakti.
-              Through my videos, I aim to highlight the beauty of our traditions and the timeless wisdom of Sanatan Dharma. 
-              My passion lies in connecting people with their spiritual roots and spreading the message of devotion in a simple and meaningful way.</p>
+    <p>My name is Shaurya Mishra, a high school student from Prayagraj. 
+       I am the creator of the YouTube channel Bharat Bhakt, where I share my love for Hinduism and the path of bhakti. 
+       Through my videos, I aim to highlight the beauty of our traditions and the timeless wisdom of Sanatan Dharma. 
+       My passion lies in connecting people with their spiritual roots and spreading the message of devotion in a simple and meaningful way.</p>
   </div>
 </body>
 </html>

@@ -17,11 +17,15 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      background: #000;
       color: #fff;
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 20px;
+      padding: 20px;            
+      overflow: hidden;
+      background: linear-gradient(45deg, #070e2f, #000000, #070857, #000000);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      position: relative;
     }
 
     h1 {
@@ -51,6 +55,7 @@
       height: auto;
       border-radius: 12px;
       max-width: 100%;
+      object-fit: cover;
     }
 
     p {
@@ -80,6 +85,52 @@
       text-align: center;
       line-height: 1.6;
       margin-top: 20px;
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .glitter {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .glitter span {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      animation: glitter 3s ease-in-out infinite;
+    }
+
+    @keyframes glitter {
+      0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        transform: translateY(-100px) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-200px) scale(0.5);
+        opacity: 0;
+      }
     }
 
     /* Media Queries for Responsiveness */
@@ -114,11 +165,14 @@
   </style>
 </head>
 <body>
+  <div class="glitter" id="glitter-container"></div>
+
   <!-- Heading -->
   <h1>Welcome to My Website</h1>
   
   <!-- Image with shiny border -->
   <div class="shiny-image-container">
+    <!-- Placeholder base64 image -->
     <img src="individual.jpg" alt="Mr. Shaurya">
   </div>
   <div class="text-box">
@@ -127,5 +181,20 @@
        Through my videos, I aim to highlight the beauty of our traditions and the timeless wisdom of Sanatan Dharma. 
        My passion lies in connecting people with their spiritual roots and spreading the message of devotion in a simple and meaningful way.</p>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const glitterContainer = document.getElementById('glitter-container');
+      const glitterCount = 150; // Increased number of glitter particles
+
+      for (let i = 0; i < glitterCount; i++) {
+        const glitter = document.createElement('span');
+        glitter.style.left = `${Math.random() * 100}%`;
+        glitter.style.top = `${Math.random() * 100}%`;
+        glitter.style.animationDelay = `${Math.random() * 3}s`;
+        glitterContainer.appendChild(glitter);
+      }
+    });
+  </script>
 </body>
 </html>
